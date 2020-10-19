@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DLWMS.DataAccess
+namespace DLWMS.DataAccess.P1
 {
     public class Student
     {
