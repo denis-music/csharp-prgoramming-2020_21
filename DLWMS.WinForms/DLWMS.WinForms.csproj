@@ -64,6 +64,22 @@
     <Compile Include="P4\frmXO.Designer.cs">
       <DependentUpon>frmXO.cs</DependentUpon>
     </Compile>
+    <Compile Include="P5\frmPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P5\frmPrijava.Designer.cs">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P5\frmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P5\frmRegistracija.Designer.cs">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="P5\InMemoryDB.cs" />
+    <Compile Include="P5\Korisnik.cs" />
+    <Compile Include="P5\Poruke.cs" />
+    <Compile Include="P5\Validator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -75,6 +91,12 @@
     <EmbeddedResource Include="P4\frmXO.resx">
       <DependentUpon>frmXO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P5\frmPrijava.resx">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P5\frmRegistracija.resx">
+      <DependentUpon>frmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -83,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
