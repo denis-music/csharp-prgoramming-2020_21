@@ -13,5 +13,9 @@ namespace DLWMS.WinForms.P5
         public const string ObaveznaVrijednost = "Obavezna vrijednost";
         public const string KorisnikNePostoji = "Ne postoji korisnik sa unijetim kredencijalima!";
         public const string KorisnikUspjesnoDodan = "Podaci o korisniku uspjesno dodani!";
+        public const string StudentUspjesnoDodan = "Podaci o studentu uspjesno dodani!";
+        public const string StudentPodaciUspjesnoModifikovani = "Podaci o studentu uspjesno modifikovani!";
+
+
     }
 }

@@ -67,7 +67,7 @@ namespace DLWMS.WinForms.P6
 
         private void btn4GNedostupna_Click(object sender, EventArgs e)
         {
-            PrestanakRada4GMreze("4G mreza ce biti nedostupna do 13h.");
+            PrestanakRada4GMreze?.Invoke("4G mreza ce biti nedostupna do 13h.");
         }
 
         private void cbBHTelcom_CheckedChanged(object sender, EventArgs e)

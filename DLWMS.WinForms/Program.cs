@@ -1,6 +1,7 @@
 ﻿using DLWMS.WinForms.P4;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P6;
+using DLWMS.WinForms.P7;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form forma = new frmDogadjaji();
+            Form forma = new frmStudenti();
             Application.Run(forma);
         }
     }

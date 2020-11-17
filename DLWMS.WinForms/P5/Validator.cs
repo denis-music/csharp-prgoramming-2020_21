@@ -11,10 +11,32 @@ namespace DLWMS.WinForms.P5
     {
         public static bool ValidirajKontrolu(Control kontrola, ErrorProvider err, string poruka)
         {
-            if (string.IsNullOrEmpty(kontrola.Text))
+
+            if (kontrola is TextBox)
             {
-                err.SetError(kontrola, poruka);
-                return false;
+                if (string.IsNullOrEmpty(kontrola.Text))
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
+            }
+            else if (kontrola is ComboBox)
+            {
+                var cmb = kontrola as ComboBox;
+                if (string.IsNullOrEmpty(cmb.Text))
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
+            }
+            else if (kontrola is PictureBox)
+            {
+                var pb = kontrola as PictureBox;
+                if (pb.Image == null)
+                {
+                    err.SetError(kontrola, poruka);
+                    return false;
+                }
             }
             err.Clear();
             return true;
