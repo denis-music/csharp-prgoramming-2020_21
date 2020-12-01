@@ -100,6 +100,12 @@
       <DependentUpon>frmStudenti.cs</DependentUpon>
     </Compile>
     <Compile Include="P7\Student.cs" />
+    <Compile Include="P8\frmPredavanje8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="P8\frmPredavanje8.Designer.cs">
+      <DependentUpon>frmPredavanje8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="P7\frmStudenti.resx">
       <DependentUpon>frmStudenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="P8\frmPredavanje8.resx">
+      <DependentUpon>frmPredavanje8.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -2,6 +2,7 @@
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P6;
 using DLWMS.WinForms.P7;
+using DLWMS.WinForms.P8;
 using System;
 using System.Collections.Generic;
 using System.Linq;

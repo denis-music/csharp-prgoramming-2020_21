@@ -47,17 +47,41 @@ namespace DLWMS.WinForms.P7
                 UcitajPodatkeOStudentima();
             }
         }
-
+        private bool PretragaStudenata(Student s)
+        {
+            return s.Ime.ToLower().Contains(txtPretraga.Text.ToLower())
+                    || s.Prezime.ToLower().Contains(txtPretraga.Text.ToLower());
+        }
         private void txtPretraga_TextChanged(object sender, EventArgs e)
         {
             var filter = txtPretraga.Text.ToLower();
-            List<Student> rezultatPretrage = new List<Student>();
-            foreach (var student in InMemoryDB.Studenti)
-            {
-                if (student.Ime.ToLower().Contains(filter) || student.Prezime.ToLower().Contains(filter))
-                    rezultatPretrage.Add(student);
-            }
-            UcitajPodatkeOStudentima(rezultatPretrage);
+            UcitajPodatkeOStudentima(InMemoryDB.Studenti
+                .Where(s=> s.Ime.ToLower().Contains(filter)
+                    || s.Prezime.ToLower().Contains(filter)).ToList());
+            //___ver___3
+            //var rezultatPretrage =
+            //    InMemoryDB.Studenti.Where(PretragaStudenata).ToList();
+            //UcitajPodatkeOStudentima(rezultatPretrage);
+
+            //___ver___2
+            //var rezultatPretrage =
+            //    InMemoryDB.Studenti.Where(s => s.Ime.ToLower().Contains(filter)
+            //        || s.Prezime.ToLower().Contains(filter)).ToList();           
+            //UcitajPodatkeOStudentima(rezultatPretrage);
+
+            //___ver___1
+            //var filter = txtPretraga.Text.ToLower();
+            //List<Student> rezultatPretrage = new List<Student>();
+            //foreach (var student in InMemoryDB.Studenti)
+            //{
+            //    if (student.Ime.ToLower().Contains(filter) 
+            //        || student.Prezime.ToLower().Contains(filter))
+            //        rezultatPretrage.Add(student);
+            //}
+            //UcitajPodatkeOStudentima(rezultatPretrage);
+
+
+
         }
     }
 }
