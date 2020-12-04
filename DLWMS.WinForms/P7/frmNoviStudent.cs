@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.P5;
+using DLWMS.WinForms.P9;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,14 +20,26 @@ namespace DLWMS.WinForms.P7
         public frmNoviStudent()
         {
             InitializeComponent();
-            GenerisiBrojIndeksa();
+            UcitajPodatke();
+            
         }
-
         public frmNoviStudent(Student student) : this()
         {
             this._student = student;
             UcitajPodatkeOStudentu();
             _promjena = true;
+        }
+        private void UcitajPodatke()
+        {
+            GenerisiBrojIndeksa();
+            UcitajSpolove();
+        }
+
+        private void UcitajSpolove()
+        {
+            cmbSpol.DataSource = InMemoryDB.Spolovi;
+            cmbSpol.DisplayMember = "Naziv";
+            cmbSpol.ValueMember = "Id";
         }
 
         private void UcitajPodatkeOStudentu()
@@ -39,6 +52,8 @@ namespace DLWMS.WinForms.P7
                 txtEmail.Text = _student.Email;
                 txtIndeks.Text = _student.Indeks;
                 cmbGodinaStudija.SelectedIndex = cmbGodinaStudija.Items.IndexOf(_student.GodinaStudija.ToString());
+                if(_student.Spol != null)
+                    cmbSpol.SelectedValue = _student.Spol.Id;
                 cbAktivan.Checked = _student.Aktivan;
                 pbSlikaStudenta.Image = _student.Slika;
             }
@@ -93,6 +108,7 @@ namespace DLWMS.WinForms.P7
                 _student.GodinaStudija = int.Parse(cmbGodinaStudija.Text);
                 _student.Aktivan = cbAktivan.Checked;
                 _student.Slika = pbSlikaStudenta.Image;
+                _student.Spol = cmbSpol.SelectedItem as Spol;
                 
                 if (_promjena == true)                
                     MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
@@ -120,6 +136,7 @@ namespace DLWMS.WinForms.P7
                 Validator.ValidirajKontrolu(txtIndeks, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtIme, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtPrezime, err, Poruke.ObaveznaVrijednost) &&
+                Validator.ValidirajKontrolu(cmbSpol, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(txtEmail, err, Poruke.ObaveznaVrijednost) &&
                 Validator.ValidirajKontrolu(cmbGodinaStudija, err, Poruke.ObaveznaVrijednost);
         }

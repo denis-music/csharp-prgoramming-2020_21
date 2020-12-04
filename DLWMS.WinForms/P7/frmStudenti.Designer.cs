@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvStudenti = new System.Windows.Forms.DataGridView();
+            this.btnNoviStudent = new System.Windows.Forms.Button();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
             this.Indeks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GodinaStudija = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnNoviStudent = new System.Windows.Forms.Button();
-            this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.Polozeni = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudenti)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             this.Ime,
             this.Prezime,
             this.GodinaStudija,
-            this.Aktivan});
+            this.Aktivan,
+            this.Polozeni});
             this.dgvStudenti.Location = new System.Drawing.Point(12, 44);
             this.dgvStudenti.Name = "dgvStudenti";
             this.dgvStudenti.ReadOnly = true;
@@ -57,6 +59,24 @@
             this.dgvStudenti.Size = new System.Drawing.Size(682, 269);
             this.dgvStudenti.TabIndex = 0;
             this.dgvStudenti.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudenti_CellContentClick);
+            // 
+            // btnNoviStudent
+            // 
+            this.btnNoviStudent.Location = new System.Drawing.Point(595, 13);
+            this.btnNoviStudent.Name = "btnNoviStudent";
+            this.btnNoviStudent.Size = new System.Drawing.Size(97, 23);
+            this.btnNoviStudent.TabIndex = 1;
+            this.btnNoviStudent.Text = "Novi student";
+            this.btnNoviStudent.UseVisualStyleBackColor = true;
+            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(12, 16);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(577, 20);
+            this.txtPretraga.TabIndex = 2;
+            this.txtPretraga.TextChanged += new System.EventHandler(this.txtPretraga_TextChanged);
             // 
             // Indeks
             // 
@@ -96,23 +116,13 @@
             this.Aktivan.Name = "Aktivan";
             this.Aktivan.ReadOnly = true;
             // 
-            // btnNoviStudent
+            // Polozeni
             // 
-            this.btnNoviStudent.Location = new System.Drawing.Point(595, 13);
-            this.btnNoviStudent.Name = "btnNoviStudent";
-            this.btnNoviStudent.Size = new System.Drawing.Size(97, 23);
-            this.btnNoviStudent.TabIndex = 1;
-            this.btnNoviStudent.Text = "Novi student";
-            this.btnNoviStudent.UseVisualStyleBackColor = true;
-            this.btnNoviStudent.Click += new System.EventHandler(this.btnNoviStudent_Click);
-            // 
-            // txtPretraga
-            // 
-            this.txtPretraga.Location = new System.Drawing.Point(12, 16);
-            this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(577, 20);
-            this.txtPretraga.TabIndex = 2;
-            this.txtPretraga.TextChanged += new System.EventHandler(this.txtPretraga_TextChanged);
+            this.Polozeni.HeaderText = "Polozeni";
+            this.Polozeni.Name = "Polozeni";
+            this.Polozeni.ReadOnly = true;
+            this.Polozeni.Text = "Polozeni";
+            this.Polozeni.UseColumnTextForButtonValue = true;
             // 
             // frmStudenti
             // 
@@ -135,12 +145,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvStudenti;
+        private System.Windows.Forms.Button btnNoviStudent;
+        private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.DataGridViewTextBoxColumn Indeks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Prezime;
         private System.Windows.Forms.DataGridViewTextBoxColumn GodinaStudija;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
-        private System.Windows.Forms.Button btnNoviStudent;
-        private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.DataGridViewButtonColumn Polozeni;
     }
 }

@@ -50,6 +50,8 @@
             this.cmbGodinaStudija = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ofdOdabirSlike = new System.Windows.Forms.OpenFileDialog();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbSpol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaStudenta)).BeginInit();
@@ -99,7 +101,7 @@
             // cbAktivan
             // 
             this.cbAktivan.AutoSize = true;
-            this.cbAktivan.Location = new System.Drawing.Point(532, 270);
+            this.cbAktivan.Location = new System.Drawing.Point(520, 282);
             this.cbAktivan.Name = "cbAktivan";
             this.cbAktivan.Size = new System.Drawing.Size(62, 17);
             this.cbAktivan.TabIndex = 6;
@@ -109,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(250, 219);
+            this.label5.Location = new System.Drawing.Point(238, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 32;
@@ -117,7 +119,7 @@
             // 
             // dtpDatumRodjenja
             // 
-            this.dtpDatumRodjenja.Location = new System.Drawing.Point(366, 215);
+            this.dtpDatumRodjenja.Location = new System.Drawing.Point(354, 202);
             this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
             this.dtpDatumRodjenja.Size = new System.Drawing.Size(228, 20);
             this.dtpDatumRodjenja.TabIndex = 3;
@@ -125,7 +127,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(250, 193);
+            this.label3.Location = new System.Drawing.Point(238, 181);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 13);
             this.label3.TabIndex = 31;
@@ -134,7 +136,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(250, 167);
+            this.label4.Location = new System.Drawing.Point(238, 156);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 13);
             this.label4.TabIndex = 30;
@@ -142,7 +144,7 @@
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(366, 189);
+            this.txtPrezime.Location = new System.Drawing.Point(354, 177);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(228, 20);
             this.txtPrezime.TabIndex = 2;
@@ -150,7 +152,7 @@
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(366, 163);
+            this.txtIme.Location = new System.Drawing.Point(354, 152);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(228, 20);
             this.txtIme.TabIndex = 1;
@@ -159,7 +161,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(250, 245);
+            this.label1.Location = new System.Drawing.Point(238, 256);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 28;
@@ -167,7 +169,7 @@
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(519, 293);
+            this.btnSacuvaj.Location = new System.Drawing.Point(507, 305);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(75, 23);
             this.btnSacuvaj.TabIndex = 7;
@@ -177,7 +179,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(366, 241);
+            this.txtEmail.Location = new System.Drawing.Point(354, 253);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(228, 20);
             this.txtEmail.TabIndex = 4;
@@ -189,7 +191,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 141);
+            this.label2.Location = new System.Drawing.Point(238, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 38;
@@ -197,7 +199,7 @@
             // 
             // txtIndeks
             // 
-            this.txtIndeks.Location = new System.Drawing.Point(366, 137);
+            this.txtIndeks.Location = new System.Drawing.Point(354, 127);
             this.txtIndeks.Name = "txtIndeks";
             this.txtIndeks.Size = new System.Drawing.Size(228, 20);
             this.txtIndeks.TabIndex = 0;
@@ -222,7 +224,7 @@
             "3",
             "4",
             "5"});
-            this.cmbGodinaStudija.Location = new System.Drawing.Point(366, 268);
+            this.cmbGodinaStudija.Location = new System.Drawing.Point(354, 278);
             this.cmbGodinaStudija.Name = "cmbGodinaStudija";
             this.cmbGodinaStudija.Size = new System.Drawing.Size(99, 21);
             this.cmbGodinaStudija.TabIndex = 5;
@@ -230,7 +232,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(250, 271);
+            this.label9.Location = new System.Drawing.Point(238, 281);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(77, 13);
             this.label9.TabIndex = 41;
@@ -240,11 +242,36 @@
             // 
             this.ofdOdabirSlike.FileName = "openFileDialog1";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(238, 231);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(31, 13);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Spol:";
+            // 
+            // cmbSpol
+            // 
+            this.cmbSpol.FormattingEnabled = true;
+            this.cmbSpol.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.cmbSpol.Location = new System.Drawing.Point(354, 227);
+            this.cmbSpol.Name = "cmbSpol";
+            this.cmbSpol.Size = new System.Drawing.Size(99, 21);
+            this.cmbSpol.TabIndex = 42;
+            // 
             // frmNoviStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(607, 332);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cmbSpol);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbGodinaStudija);
             this.Controls.Add(this.pbSlikaStudenta);
@@ -298,5 +325,7 @@
         private System.Windows.Forms.ComboBox cmbGodinaStudija;
         private System.Windows.Forms.PictureBox pbSlikaStudenta;
         private System.Windows.Forms.OpenFileDialog ofdOdabirSlike;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbSpol;
     }
 }

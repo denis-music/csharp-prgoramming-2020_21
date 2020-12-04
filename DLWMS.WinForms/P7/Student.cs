@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DLWMS.WinForms.P9;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -18,6 +19,12 @@ namespace DLWMS.WinForms.P7
         public string Prezime { get; set; }
         public DateTime DatumRodjenja { get; set; }     
         public bool Aktivan { get; set; }
+        public Spol Spol { get; set; }
+        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        public Student()
+        {
+            PolozeniPredmeti = new List<PolozeniPredmet>();
+        }
         public override string ToString()
         {
             return $"{Ime} {Prezime}";
