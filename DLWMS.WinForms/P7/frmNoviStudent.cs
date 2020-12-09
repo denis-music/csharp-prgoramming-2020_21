@@ -1,4 +1,5 @@
-﻿using DLWMS.WinForms.P5;
+﻿using DLWMS.WinForms.P10;
+using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P9;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace DLWMS.WinForms.P7
 {
     public partial class frmNoviStudent : Form
     {
+
+        KonekcijaNaBazu _db = new KonekcijaNaBazu();
+
         private Student _student;
         private bool _promjena;
 
@@ -55,7 +59,7 @@ namespace DLWMS.WinForms.P7
                 if(_student.Spol != null)
                     cmbSpol.SelectedValue = _student.Spol.Id;
                 cbAktivan.Checked = _student.Aktivan;
-                pbSlikaStudenta.Image = _student.Slika;
+                pbSlikaStudenta.Image = ImageHelper.FromByteToImage(_student.Slika);
             }
         }
 
@@ -73,7 +77,9 @@ namespace DLWMS.WinForms.P7
 
         private void GenerisiBrojIndeksa()
         {
-            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + InMemoryDB.Studenti.Count}";
+            //txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + InMemoryDB.Studenti.Count}";
+            txtIndeks.Text = $"IB{((DateTime.Now.Year - 2000) * 10000) + _db.Studenti.Count()}";
+
         }
 
         private void txtIme_TextChanged(object sender, EventArgs e)
@@ -98,7 +104,7 @@ namespace DLWMS.WinForms.P7
                 if (!_promjena)
                 {
                     _student = new Student();
-                    _student.Id = InMemoryDB.Studenti.Count + 1;
+                    //_student.Id = InMemoryDB.Studenti.Count + 1;
                 }
                 _student.Ime = txtIme.Text;
                 _student.Prezime = txtPrezime.Text;
@@ -107,17 +113,21 @@ namespace DLWMS.WinForms.P7
                 _student.Indeks = txtIndeks.Text;
                 _student.GodinaStudija = int.Parse(cmbGodinaStudija.Text);
                 _student.Aktivan = cbAktivan.Checked;
-                _student.Slika = pbSlikaStudenta.Image;
+                _student.Slika = ImageHelper.FromImageToByte(pbSlikaStudenta.Image);
                 _student.Spol = cmbSpol.SelectedItem as Spol;
-                
-                if (_promjena == true)                
+
+                if (_promjena == true)
+                {
+
                     MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
+                }
                 else
                 {
-                    InMemoryDB.Studenti.Add(_student);
+                    //InMemoryDB.Studenti.Add(_student);
+                    _db.Studenti.Add(_student);
                     MessageBox.Show(Poruke.StudentUspjesnoDodan);
                 }
-
+                _db.SaveChanges();
                 Close();
                 // OcistiFormu();
             }

@@ -1,4 +1,5 @@
-﻿using DLWMS.WinForms.P4;
+﻿using DLWMS.WinForms.P10;
+using DLWMS.WinForms.P4;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P6;
 using DLWMS.WinForms.P7;
@@ -21,7 +22,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form forma = new frmStudenti();
+            Form forma = new frmSQLite();
             Application.Run(forma);
         }
     }

@@ -1,4 +1,5 @@
-﻿using DLWMS.WinForms.P5;
+﻿using DLWMS.WinForms.P10;
+using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P9;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace DLWMS.WinForms.P7
 {
     public partial class frmStudenti : Form
     {
+        KonekcijaNaBazu _db = new KonekcijaNaBazu();
+
         public frmStudenti()
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace DLWMS.WinForms.P7
         private void UcitajPodatkeOStudentima(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+            dgvStudenti.DataSource = studenti ?? _db.Studenti.ToList();  //InMemoryDB.Studenti;
         }
 
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -61,9 +64,14 @@ namespace DLWMS.WinForms.P7
         private void txtPretraga_TextChanged(object sender, EventArgs e)
         {
             var filter = txtPretraga.Text.ToLower();
-            UcitajPodatkeOStudentima(InMemoryDB.Studenti
-                .Where(s=> s.Ime.ToLower().Contains(filter)
-                    || s.Prezime.ToLower().Contains(filter)).ToList());
+
+            UcitajPodatkeOStudentima(_db.Studenti
+              .Where(s => s.Ime.ToLower().Contains(filter)
+                  || s.Prezime.ToLower().Contains(filter)).ToList());
+            //___ver___4
+            //UcitajPodatkeOStudentima(InMemoryDB.Studenti
+            //    .Where(s=> s.Ime.ToLower().Contains(filter)
+            //        || s.Prezime.ToLower().Contains(filter)).ToList());
             //___ver___3
             //var rezultatPretrage =
             //    InMemoryDB.Studenti.Where(PretragaStudenata).ToList();
