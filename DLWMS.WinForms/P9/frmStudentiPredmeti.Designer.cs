@@ -36,16 +36,19 @@ namespace DLWMS.WinForms.P9
             this.dtpDatumPolaganja = new System.Windows.Forms.DateTimePicker();
             this.btnDodajPolozeni = new System.Windows.Forms.Button();
             this.err = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblBrojZapisa = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblProsjek = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Predmet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ocjena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolozeniPredmeti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvPolozeniPredmeti
@@ -107,36 +110,13 @@ namespace DLWMS.WinForms.P9
             // 
             this.err.ContainerControl = this;
             // 
-            // Predmet
-            // 
-            this.Predmet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Predmet.DataPropertyName = "Predmet";
-            this.Predmet.HeaderText = "Predmet";
-            this.Predmet.Name = "Predmet";
-            this.Predmet.ReadOnly = true;
-            // 
-            // Ocjena
-            // 
-            this.Ocjena.DataPropertyName = "Ocjena";
-            this.Ocjena.HeaderText = "Ocjena";
-            this.Ocjena.Name = "Ocjena";
-            this.Ocjena.ReadOnly = true;
-            // 
-            // Datum
-            // 
-            this.Datum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Datum.DataPropertyName = "DatumPolaganja";
-            this.Datum.HeaderText = "Datum polaganja";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblBrojZapisa,
             this.toolStripStatusLabel2,
             this.lblProsjek});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 229);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 347);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(551, 22);
             this.statusStrip1.TabIndex = 5;
@@ -158,11 +138,54 @@ namespace DLWMS.WinForms.P9
             this.lblProsjek.Name = "lblProsjek";
             this.lblProsjek.Size = new System.Drawing.Size(0, 17);
             // 
+            // Predmet
+            // 
+            this.Predmet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Predmet.DataPropertyName = "Predmet";
+            this.Predmet.HeaderText = "Predmet";
+            this.Predmet.Name = "Predmet";
+            this.Predmet.ReadOnly = true;
+            // 
+            // Ocjena
+            // 
+            this.Ocjena.DataPropertyName = "Ocjena";
+            this.Ocjena.HeaderText = "Ocjena";
+            this.Ocjena.Name = "Ocjena";
+            this.Ocjena.ReadOnly = true;
+            // 
+            // Datum
+            // 
+            this.Datum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Datum.DataPropertyName = "Datum";
+            this.Datum.HeaderText = "Datum polaganja";
+            this.Datum.Name = "Datum";
+            this.Datum.ReadOnly = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 231);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 107);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(258, 231);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Dodaj";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmStudentiPredmeti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 251);
+            this.ClientSize = new System.Drawing.Size(551, 369);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnDodajPolozeni);
             this.Controls.Add(this.dtpDatumPolaganja);
@@ -176,6 +199,7 @@ namespace DLWMS.WinForms.P9
             ((System.ComponentModel.ISupportInitialize)(this.err)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,12 +213,14 @@ namespace DLWMS.WinForms.P9
         private System.Windows.Forms.DateTimePicker dtpDatumPolaganja;
         private System.Windows.Forms.Button btnDodajPolozeni;
         private System.Windows.Forms.ErrorProvider err;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblBrojZapisa;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel lblProsjek;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Predmet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocjena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }

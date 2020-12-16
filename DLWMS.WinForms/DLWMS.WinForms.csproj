@@ -79,6 +79,11 @@
     </Compile>
     <Compile Include="P10\ImageHelper.cs" />
     <Compile Include="P10\KonekcijaNaBazu.cs" />
+    <Compile Include="P10\Prisustva.cs" />
+    <Compile Include="P11\DLWMSdb.cs" />
+    <Compile Include="P11\StudentiPredmeti.cs" />
+    <Compile Include="P11\StudentiUloge.cs" />
+    <Compile Include="P11\Uloge.cs" />
     <Compile Include="P4\frmIgraci.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,7 +191,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DLWMS.db" />
+    <None Include="DLWMS.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,6 +211,7 @@
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

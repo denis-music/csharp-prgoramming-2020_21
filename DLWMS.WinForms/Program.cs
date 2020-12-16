@@ -22,7 +22,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form forma = new frmSQLite();
+            Form forma = new frmStudenti();
             Application.Run(forma);
         }
     }

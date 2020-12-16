@@ -1,4 +1,5 @@
 ﻿using DLWMS.WinForms.P10;
+using DLWMS.WinForms.P11;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P9;
 using System;
@@ -16,7 +17,7 @@ namespace DLWMS.WinForms.P7
     public partial class frmNoviStudent : Form
     {
 
-        KonekcijaNaBazu _db = new KonekcijaNaBazu();
+        KonekcijaNaBazu _db = DLWMSdb.Baza; //new KonekcijaNaBazu();
 
         private Student _student;
         private bool _promjena;
@@ -41,7 +42,7 @@ namespace DLWMS.WinForms.P7
 
         private void UcitajSpolove()
         {
-            cmbSpol.DataSource = InMemoryDB.Spolovi;
+            cmbSpol.DataSource = _db.Spolovi.ToList(); //InMemoryDB.Spolovi;
             cmbSpol.DisplayMember = "Naziv";
             cmbSpol.ValueMember = "Id";
         }
@@ -118,7 +119,7 @@ namespace DLWMS.WinForms.P7
 
                 if (_promjena == true)
                 {
-
+                    _db.Entry(_student).State = System.Data.Entity.EntityState.Modified;
                     MessageBox.Show(Poruke.StudentPodaciUspjesnoModifikovani);
                 }
                 else

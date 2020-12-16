@@ -1,4 +1,6 @@
-﻿using DLWMS.WinForms.P5;
+﻿using DLWMS.WinForms.P10;
+using DLWMS.WinForms.P11;
+using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P7;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,9 @@ namespace DLWMS.WinForms.P9
     public partial class frmStudentiPredmeti : Form
     {
         Student student;
+
+        KonekcijaNaBazu _baza = DLWMSdb.Baza;
+
         public frmStudentiPredmeti(Student student)
         {
             InitializeComponent();
@@ -28,6 +33,7 @@ namespace DLWMS.WinForms.P9
             {
                 UcitajPredmete();
                 UcitajPolozenePredmete();
+                UcitajUloge();
             }
             catch (Exception ex)
             {
@@ -35,10 +41,18 @@ namespace DLWMS.WinForms.P9
             }
         }
 
+        private void UcitajUloge()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = student.Uloge.ToList();
+           // dataGridView1.DataSource = _baza.StudentiUloge.Where(x=>x.Student.Id == student.Id).ToList();
+
+        }
+
         private void UcitajPolozenePredmete()
         {
             dgvPolozeniPredmeti.DataSource = null;
-            dgvPolozeniPredmeti.DataSource = student.PolozeniPredmeti;
+            dgvPolozeniPredmeti.DataSource = _baza.StudentiPredmeti.Where(x => x.Student.Id == student.Id).ToList(); //student.PolozeniPredmeti;
             //    new BindingSource()
             //{
             //    DataSource = student.PolozeniPredmeti
@@ -47,22 +61,32 @@ namespace DLWMS.WinForms.P9
 
         private void UcitajPredmete()
         {
-            cmbPredmeti.DataSource = InMemoryDB.NPP;
+            cmbPredmeti.DataSource = _baza.Predmet.ToList(); //InMemoryDB.NPP;
             cmbPredmeti.DisplayMember = "Naziv";
             cmbPredmeti.ValueMember = "Id";
         }
 
         private void btnDodajPolozeni_Click(object sender, EventArgs e)
         {
+            //TODO: Na svim lokacijama na kojima je potrebno, dodati odgovarajucu obradu izuzetaka
             if (ValidanUnos())
             {
-                student.PolozeniPredmeti.Add(new PolozeniPredmet()
-                {
-                    Id = student.PolozeniPredmeti.Count + 1,
-                    DatumPolaganja = dtpDatumPolaganja.Value,
+
+                _baza.StudentiPredmeti.Add(new StudentiPredmeti()
+                {                    
+                    Datum = dtpDatumPolaganja.Value,
                     Ocjena = int.Parse(cmbOcjene.Text),
-                    Predmet = cmbPredmeti.SelectedItem as Predmet
-                }) ;
+                    Predmet = cmbPredmeti.SelectedItem as Predmet,
+                    Student = student
+                });
+                _baza.SaveChanges();
+                //student.PolozeniPredmeti.Add(new PolozeniPredmet()
+                //{
+                //    Id = student.PolozeniPredmeti.Count + 1,
+                //    DatumPolaganja = dtpDatumPolaganja.Value,
+                //    Ocjena = int.Parse(cmbOcjene.Text),
+                //    Predmet = cmbPredmeti.SelectedItem as Predmet
+                //});
                 UcitajPolozenePredmete();
                 OnemoguciDodavanje();
                 UcitajStatistiku();
@@ -71,6 +95,8 @@ namespace DLWMS.WinForms.P9
 
         private void UcitajStatistiku()
         {
+            //TODO: Korigovati na nacin da se podaci preuzimaju iz baze
+            //TODO: Neke od podataka iskazati u procentima
             var brojZapisa = student.PolozeniPredmeti.Count;
             lblBrojZapisa.Text = $"Broj zapisa {brojZapisa}";
             if (brojZapisa > 0)
@@ -95,6 +121,19 @@ namespace DLWMS.WinForms.P9
             var odabraniPredmet = cmbPredmeti.SelectedItem as Predmet;
             var postoji = student.PolozeniPredmeti.Where(polozeni => polozeni.Predmet.Id == odabraniPredmet.Id).Count() > 0;
             btnDodajPolozeni.Enabled = !postoji;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                student.Uloge.Add(_baza.Uloge.Find(2));
+                _baza.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }            
         }
     }
 }
