@@ -1,5 +1,6 @@
 ﻿using DLWMS.WinForms.P10;
 using DLWMS.WinForms.P11;
+using DLWMS.WinForms.P12;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P7;
 using System;
@@ -43,8 +44,8 @@ namespace DLWMS.WinForms.P9
 
         private void UcitajUloge()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = student.Uloge.ToList();
+            //dataGridView1.DataSource = null;
+            //dataGridView1.DataSource = student.Uloge.ToList();
            // dataGridView1.DataSource = _baza.StudentiUloge.Where(x=>x.Student.Id == student.Id).ToList();
 
         }
@@ -135,5 +136,27 @@ namespace DLWMS.WinForms.P9
                 MessageBox.Show(ex.Message);
             }            
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+            var dtoStudentPrint = new dtoStudentPrint()
+            {
+                Indeks = student.Indeks,
+                ImePrezime = $"{student.Ime} {student.Prezime}",
+                Polozeni = dgvPolozeniPredmeti.DataSource as List<StudentiPredmeti>
+            };
+
+            frmIzvjestaji frmIzvjestaji = new frmIzvjestaji(dtoStudentPrint);
+            frmIzvjestaji.ShowDialog();
+        }
+    }
+
+    public class dtoStudentPrint
+    {
+        public string Indeks { get; set; }
+        public string ImePrezime { get; set; }
+        public List<StudentiPredmeti> Polozeni { get; set; }
+
     }
 }
