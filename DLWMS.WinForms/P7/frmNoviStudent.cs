@@ -38,6 +38,14 @@ namespace DLWMS.WinForms.P7
         {
             GenerisiBrojIndeksa();
             UcitajSpolove();
+            UcitajUloge();
+        }
+
+        private void UcitajUloge()
+        {
+            var uloge = _db.Uloge.ToList();
+            clbUloge.DataSource = uloge;
+            clbUloge.DisplayMember = "Naziv";
         }
 
         private void UcitajSpolove()
@@ -61,6 +69,15 @@ namespace DLWMS.WinForms.P7
                     cmbSpol.SelectedValue = _student.Spol.Id;
                 cbAktivan.Checked = _student.Aktivan;
                 pbSlikaStudenta.Image = ImageHelper.FromByteToImage(_student.Slika);
+
+                var uloge = clbUloge.Items.Cast<Uloga>().ToList();
+                for (int i = 0; i < uloge.Count ; i++)
+                {
+                    if(_student.Uloge.Where(x=>x.Id == uloge[i].Id).Count() > 0 )
+                        clbUloge.SetItemChecked(i, true);
+                }
+
+
             }
         }
 
@@ -116,6 +133,7 @@ namespace DLWMS.WinForms.P7
                 _student.Aktivan = cbAktivan.Checked;
                 _student.Slika = ImageHelper.FromImageToByte(pbSlikaStudenta.Image);
                 _student.Spol = cmbSpol.SelectedItem as Spol;
+                _student.Uloge = clbUloge.CheckedItems.Cast<Uloga>().ToList();
 
                 if (_promjena == true)
                 {

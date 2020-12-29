@@ -182,6 +182,7 @@ namespace DLWMS.WinForms.P9
             this.Controls.Add(this.cmbPredmeti);
             this.Controls.Add(this.dgvPolozeniPredmeti);
             this.Name = "frmStudentiPredmeti";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Položeni predmeti";
             this.Load += new System.EventHandler(this.frmStudentiPredmeti_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPolozeniPredmeti)).EndInit();

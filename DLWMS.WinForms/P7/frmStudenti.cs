@@ -31,8 +31,9 @@ namespace DLWMS.WinForms.P7
 
         private void btnNoviStudent_Click(object sender, EventArgs e)
         {
-            frmNoviStudent frmNoviStudent = new frmNoviStudent();
-            frmNoviStudent.ShowDialog();
+            //frmNoviStudent frmNoviStudent = new frmNoviStudent();
+            //frmNoviStudent.ShowDialog();
+            PrikaziFormu(new frmNoviStudent());
             UcitajPodatkeOStudentima();
         }
 
@@ -40,6 +41,13 @@ namespace DLWMS.WinForms.P7
         {
             dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = studenti ?? _baza.Studenti.ToList();  //InMemoryDB.Studenti;
+        }
+
+        private void PrikaziFormu(Form form)
+        {
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
 
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -52,7 +60,8 @@ namespace DLWMS.WinForms.P7
                     form = new frmStudentiPredmeti(student);
                 else
                     form = new frmNoviStudent(student);
-                form.ShowDialog();
+                //form.ShowDialog();
+                PrikaziFormu(form);
 
                 UcitajPodatkeOStudentima();
             }

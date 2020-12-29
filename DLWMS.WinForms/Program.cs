@@ -23,7 +23,7 @@ namespace DLWMS.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form forma = new frmStudenti();
+            Form forma = new frmGlavna();
             Application.Run(forma);
         }
     }

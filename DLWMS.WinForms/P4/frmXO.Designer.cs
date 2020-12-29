@@ -156,6 +156,7 @@ namespace DLWMS.WinForms.P4
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "frmXO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmXO";
             this.Load += new System.EventHandler(this.frmXO_Load);
             this.ResumeLayout(false);

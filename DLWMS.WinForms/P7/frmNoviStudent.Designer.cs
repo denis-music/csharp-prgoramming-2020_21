@@ -52,6 +52,7 @@
             this.ofdOdabirSlike = new System.Windows.Forms.OpenFileDialog();
             this.label10 = new System.Windows.Forms.Label();
             this.cmbSpol = new System.Windows.Forms.ComboBox();
+            this.clbUloge = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.err)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaStudenta)).BeginInit();
@@ -169,7 +170,7 @@
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(507, 305);
+            this.btnSacuvaj.Location = new System.Drawing.Point(742, 282);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(75, 23);
             this.btnSacuvaj.TabIndex = 7;
@@ -265,11 +266,20 @@
             this.cmbSpol.Size = new System.Drawing.Size(99, 21);
             this.cmbSpol.TabIndex = 42;
             // 
+            // clbUloge
+            // 
+            this.clbUloge.FormattingEnabled = true;
+            this.clbUloge.Location = new System.Drawing.Point(588, 127);
+            this.clbUloge.Name = "clbUloge";
+            this.clbUloge.Size = new System.Drawing.Size(233, 124);
+            this.clbUloge.TabIndex = 44;
+            // 
             // frmNoviStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 332);
+            this.ClientSize = new System.Drawing.Size(829, 316);
+            this.Controls.Add(this.clbUloge);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cmbSpol);
             this.Controls.Add(this.label9);
@@ -292,6 +302,7 @@
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.txtEmail);
             this.Name = "frmNoviStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Podaci o studentu";
             this.Load += new System.EventHandler(this.frmNoviStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -327,5 +338,6 @@
         private System.Windows.Forms.OpenFileDialog ofdOdabirSlike;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cmbSpol;
+        private System.Windows.Forms.CheckedListBox clbUloge;
     }
 }

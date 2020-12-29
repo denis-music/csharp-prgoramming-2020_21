@@ -16,6 +16,9 @@ namespace DLWMS.WinForms.P5
         public const string StudentUspjesnoDodan = "Podaci o studentu uspjesno dodani!";
         public const string StudentPodaciUspjesnoModifikovani = "Podaci o studentu uspjesno modifikovani!";
 
+        public const string IzlazIzPrograma = "Da li želite izaći iz programa?";
+        public const string Pitanje = "Pitanje";
+
 
     }
 }
