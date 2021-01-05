@@ -1,5 +1,7 @@
 ﻿using DLWMS.WinForms.P10;
 using DLWMS.WinForms.P12;
+using DLWMS.WinForms.P13;
+using DLWMS.WinForms.P14;
 using DLWMS.WinForms.P4;
 using DLWMS.WinForms.P5;
 using DLWMS.WinForms.P6;
