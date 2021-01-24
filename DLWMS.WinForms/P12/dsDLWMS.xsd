@@ -12,13 +12,22 @@
   <xs:element name="dsDLWMS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDLWMS" msprop:Generator_UserDSName="dsDLWMS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Polozeni" msprop:Generator_TableClassName="PolozeniDataTable" msprop:Generator_TableVarName="tablePolozeni" msprop:Generator_TablePropName="Polozeni" msprop:Generator_RowDeletingName="PolozeniRowDeleting" msprop:Generator_RowChangingName="PolozeniRowChanging" msprop:Generator_RowEvHandlerName="PolozeniRowChangeEventHandler" msprop:Generator_RowDeletedName="PolozeniRowDeleted" msprop:Generator_UserTableName="Polozeni" msprop:Generator_RowChangedName="PolozeniRowChanged" msprop:Generator_RowEvArgName="PolozeniRowChangeEvent" msprop:Generator_RowClassName="PolozeniRow">
+        <xs:element name="Polozeni" msprop:Generator_TableClassName="PolozeniDataTable" msprop:Generator_TableVarName="tablePolozeni" msprop:Generator_RowChangedName="PolozeniRowChanged" msprop:Generator_TablePropName="Polozeni" msprop:Generator_RowDeletingName="PolozeniRowDeleting" msprop:Generator_RowChangingName="PolozeniRowChanging" msprop:Generator_RowEvHandlerName="PolozeniRowChangeEventHandler" msprop:Generator_RowDeletedName="PolozeniRowDeleted" msprop:Generator_RowClassName="PolozeniRow" msprop:Generator_UserTableName="Polozeni" msprop:Generator_RowEvArgName="PolozeniRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
               <xs:element name="Naziv" msprop:Generator_ColumnVarNameInTable="columnNaziv" msprop:Generator_ColumnPropNameInRow="Naziv" msprop:Generator_ColumnPropNameInTable="NazivColumn" msprop:Generator_UserColumnName="Naziv" type="xs:string" minOccurs="0" />
               <xs:element name="Ocjena" msprop:Generator_ColumnVarNameInTable="columnOcjena" msprop:Generator_ColumnPropNameInRow="Ocjena" msprop:Generator_ColumnPropNameInTable="OcjenaColumn" msprop:Generator_UserColumnName="Ocjena" type="xs:int" minOccurs="0" />
               <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Poruke" msprop:Generator_TableClassName="PorukeDataTable" msprop:Generator_TableVarName="tablePoruke" msprop:Generator_TablePropName="Poruke" msprop:Generator_RowDeletingName="PorukeRowDeleting" msprop:Generator_RowChangingName="PorukeRowChanging" msprop:Generator_RowEvHandlerName="PorukeRowChangeEventHandler" msprop:Generator_RowDeletedName="PorukeRowDeleted" msprop:Generator_UserTableName="Poruke" msprop:Generator_RowChangedName="PorukeRowChanged" msprop:Generator_RowEvArgName="PorukeRowChangeEvent" msprop:Generator_RowClassName="PorukeRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primala" msprop:Generator_ColumnVarNameInTable="columnPrimala" msprop:Generator_ColumnPropNameInRow="Primala" msprop:Generator_ColumnPropNameInTable="PrimalaColumn" msprop:Generator_UserColumnName="Primala" type="xs:string" minOccurs="0" />
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:string" minOccurs="0" />
+              <xs:element name="Sadrzaj" msprop:Generator_ColumnVarNameInTable="columnSadrzaj" msprop:Generator_ColumnPropNameInRow="Sadrzaj" msprop:Generator_ColumnPropNameInTable="SadrzajColumn" msprop:Generator_UserColumnName="Sadrzaj" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

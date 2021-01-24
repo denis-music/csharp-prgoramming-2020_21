@@ -1,4 +1,5 @@
-﻿using DLWMS.WinForms.P7;
+﻿using DLWMS.WinForms.IspisIB150051;
+using DLWMS.WinForms.P7;
 using DLWMS.WinForms.P9;
 using Microsoft.Reporting.WinForms;
 using System;
@@ -15,7 +16,8 @@ namespace DLWMS.WinForms.P12
 {
     public partial class frmIzvjestaji : Form
     {
-        private dtoStudentPrint student;
+        private dtoStudentPrint _student;
+        List<StudentiPoruke> _poruke;
 
         public frmIzvjestaji()
         {
@@ -24,14 +26,50 @@ namespace DLWMS.WinForms.P12
 
         public frmIzvjestaji(dtoStudentPrint student) : this()
         {
-            this.student = student;
+            this._student = student;
+        }
+
+        public frmIzvjestaji(List<StudentiPoruke> poruke) : this()
+        {
+            this._poruke = poruke;
         }
 
         private void frmIzvjestaji_Load(object sender, EventArgs e)
         {
+            if (_student != null)
+                PrinajUvjerenje();
+            else if (_poruke != null)
+                PrintajPoruke();
+        }
+
+        private void PrintajPoruke()
+        {
+          
+            var tblPoruke = new dsDLWMS.PorukeDataTable();
+            for (int i = 0; i < _poruke.Count; i++)
+            {
+                var red = tblPoruke.NewPorukeRow();                
+                red.Datum = _poruke[i].DatumVrijeme.ToString();
+                red.Sadrzaj = _poruke[i].Poruka;
+                red.Primala = _poruke[i].Student.ToString();
+                tblPoruke.Rows.Add(red);
+            }
+            var rds = new ReportDataSource();
+            rds.Name = "noviPoruke";
+            //rds.Value = tblPolozeni;
+            //rds.Value = listaPolozeni;
+            rds.Value = tblPoruke;
+
+            reportViewer1.LocalReport.DataSources.Add(rds);
+
+            this.reportViewer1.RefreshReport();
+        }
+
+        private void PrinajUvjerenje()
+        {
             var rpc = new ReportParameterCollection();
-            rpc.Add(new ReportParameter("Indeks", student?.Indeks)); //"IB150051"));
-            rpc.Add(new ReportParameter("ImePrezime", student?.ImePrezime)); //"Denis Music"));
+            rpc.Add(new ReportParameter("Indeks", _student?.Indeks)); //"IB150051"));
+            rpc.Add(new ReportParameter("ImePrezime", _student?.ImePrezime)); //"Denis Music"));
 
             #region ranije_verzije
             //var tblPolozeni = new dsDLWMS.PolozeniDataTable();
@@ -58,12 +96,12 @@ namespace DLWMS.WinForms.P12
             #endregion
 
             var tblPolozeniNovi = new dsDLWMS.PolozeniDataTable();
-            for (int i = 0; i < student.Polozeni.Count; i++)
+            for (int i = 0; i < _student.Polozeni.Count; i++)
             {
                 var red = tblPolozeniNovi.NewPolozeniRow();
-                var polozeni = student.Polozeni[i];
+                var polozeni = _student.Polozeni[i];
                 red.Id = polozeni.Id;
-                red.Naziv =polozeni.Predmet.Naziv;
+                red.Naziv = polozeni.Predmet.Naziv;
                 red.Ocjena = polozeni.Ocjena;
                 red.Datum = polozeni.Datum.ToString();
                 tblPolozeniNovi.Rows.Add(red);

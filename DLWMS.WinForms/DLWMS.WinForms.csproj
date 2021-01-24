@@ -89,6 +89,25 @@
     <Compile Include="frmGlavna.Designer.cs">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </Compile>
+    <Compile Include="IspisIB150051\frmNovaPorukaIB150051.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IspisIB150051\frmNovaPorukaIB150051.Designer.cs">
+      <DependentUpon>frmNovaPorukaIB150051.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IspisIB150051\frmPorukeIB150051.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IspisIB150051\frmPorukeIB150051.Designer.cs">
+      <DependentUpon>frmPorukeIB150051.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IspisIB150051\frmPretragaIB150051.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IspisIB150051\frmPretragaIB150051.Designer.cs">
+      <DependentUpon>frmPretragaIB150051.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IspisIB150051\StudentiPoruke.cs" />
     <Compile Include="P10\frmSQLite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,12 +213,22 @@
     <EmbeddedResource Include="frmGlavna.resx">
       <DependentUpon>frmGlavna.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IspisIB150051\frmNovaPorukaIB150051.resx">
+      <DependentUpon>frmNovaPorukaIB150051.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IspisIB150051\frmPorukeIB150051.resx">
+      <DependentUpon>frmPorukeIB150051.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IspisIB150051\frmPretragaIB150051.resx">
+      <DependentUpon>frmPretragaIB150051.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="P10\frmSQLite.resx">
       <DependentUpon>frmSQLite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="P12\frmIzvjestaji.resx">
       <DependentUpon>frmIzvjestaji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="P12\rptPoruke.rdlc" />
     <EmbeddedResource Include="P12\rptUvjerenjeOPolozenim.rdlc" />
     <EmbeddedResource Include="P13\frmPredavanje13.resx">
       <DependentUpon>frmPredavanje13.cs</DependentUpon>
@@ -277,6 +306,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="Resources\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -289,6 +321,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

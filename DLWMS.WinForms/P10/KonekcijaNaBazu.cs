@@ -1,4 +1,5 @@
-﻿using DLWMS.WinForms.P11;
+﻿using DLWMS.WinForms.IspisIB150051;
+using DLWMS.WinForms.P11;
 using DLWMS.WinForms.P7;
 using DLWMS.WinForms.P9;
 using System;
@@ -23,6 +24,8 @@ namespace DLWMS.WinForms.P10
         public virtual DbSet<StudentiPredmeti> StudentiPredmeti { get; set; }
         //public virtual DbSet<StudentiUloge> StudentiUloge { get; set; }
         public virtual DbSet<Uloga> Uloge { get; set; }
+        public virtual DbSet<StudentiPoruke> StudentiPoruke { get; set; }
+
 
 
 

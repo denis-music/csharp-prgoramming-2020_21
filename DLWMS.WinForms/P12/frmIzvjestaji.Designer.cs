@@ -29,18 +29,37 @@ namespace DLWMS.WinForms.P12
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsDLWMS = new DLWMS.WinForms.P12.dsDLWMS();
+            this.PorukeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dsDLWMS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PorukeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "DLWMS.WinForms.P12.rptUvjerenjeOPolozenim.rdlc";
+            reportDataSource1.Name = "dsPoruke";
+            reportDataSource1.Value = this.PorukeBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "DLWMS.WinForms.P12.rptPoruke.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(623, 632);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // dsDLWMS
+            // 
+            this.dsDLWMS.DataSetName = "dsDLWMS";
+            this.dsDLWMS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // PorukeBindingSource
+            // 
+            this.PorukeBindingSource.DataMember = "Poruke";
+            this.PorukeBindingSource.DataSource = this.dsDLWMS;
             // 
             // frmIzvjestaji
             // 
@@ -51,6 +70,8 @@ namespace DLWMS.WinForms.P12
             this.Name = "frmIzvjestaji";
             this.Text = "frmIzvjestaji";
             this.Load += new System.EventHandler(this.frmIzvjestaji_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dsDLWMS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PorukeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -58,5 +79,7 @@ namespace DLWMS.WinForms.P12
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource PorukeBindingSource;
+        private dsDLWMS dsDLWMS;
     }
 }
